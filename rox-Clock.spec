@@ -18,7 +18,7 @@ BuildRequires:	rox-CLib-devel >= 0.2.2
 BuildRequires:	gtk+-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define   _appsdir  %{_libdir}/ROX-apps
+%define		_appsdir	%{_libdir}/ROX-apps
 
 %description
 ROX-Clock is a panel or pinboard clock, with support for settings
