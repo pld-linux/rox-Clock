@@ -1,5 +1,5 @@
 %define _appsdir /usr/X11R6/share/ROX-apps
-%define _name Clock 
+%define _name Clock
 %define _platform %(echo `uname -s`-`uname -m|sed 's/i.86/ix86/'`)
 Summary:	ROX-Clock tells the time
 Summary(pl):	ROX-Clock pokazuje czas
@@ -9,24 +9,25 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.kerofin.demon.co.uk/rox/%{_name}-%{version}.tgz
-Patch0:   %{name}-libxml-includes.patch
-Patch1:   %{name}-paths-fix.patch
+Patch0:		%{name}-libxml-includes.patch
+Patch1:		%{name}-paths-fix.patch
 URL:		http://www.kerofin.demon.co.uk/rox/utils.html#clock
 BuildRequires:	gdk-pixbuf-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	rox-CLib-devel >= 0.2.2
-BuildRequires:  gtk+-devel
+BuildRequires:	gtk+-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 
 %description
-ROX-Clock is a panel or pinboard clock, with support for settings alarms.
+ROX-Clock is a panel or pinboard clock, with support for settings
+alarms.
 
 %description -l pl
-ROX-Clock jest zegarem, który mo¿e byæ umieszczony na panelu lub pulpicie.
-Umo¿liwia tak¿e ustawianie alarmów.
+ROX-Clock jest zegarem, który mo¿e byæ umieszczony na panelu lub
+pulpicie. Umo¿liwia tak¿e ustawianie alarmów.
 
 %prep
 %setup -q -n %{_name}
