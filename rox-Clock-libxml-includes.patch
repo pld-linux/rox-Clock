@@ -1,0 +1,28 @@
+diff -urN aaa/Clock/src/alarm.c Clock/src/alarm.c
+--- aaa/Clock/src/alarm.c	Fri Apr 12 12:20:08 2002
++++ Clock/src/alarm.c	Mon Jul  1 22:47:55 2002
+@@ -23,8 +23,8 @@
+ #include <gtk/gtk.h>
+ 
+ #ifdef HAVE_XML
+-#include <tree.h>
+-#include <parser.h>
++#include <libxml/tree.h>
++#include <libxml/parser.h>
+ #endif
+ 
+ #if defined(HAVE_XML) && LIBXML_VERSION>=20400
+diff -urN aaa/Clock/src/clock.c Clock/src/clock.c
+--- aaa/Clock/src/clock.c	Mon Apr 29 10:33:55 2002
++++ Clock/src/clock.c	Mon Jul  1 22:47:44 2002
+@@ -46,8 +46,8 @@
+ #endif
+ 
+ #ifdef HAVE_XML
+-#include <tree.h>
+-#include <parser.h>
++#include <libxml/tree.h>
++#include <libxml/parser.h>
+ #endif
+ 
+ #if defined(HAVE_XML) && LIBXML_VERSION>=20400
