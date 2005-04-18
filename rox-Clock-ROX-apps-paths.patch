@@ -1,0 +1,18 @@
+diff -urN Clock.new/libdir Clock/libdir
+--- Clock.new/libdir	2005-04-18 15:27:06.632898152 +0200
++++ Clock/libdir	2005-04-18 15:46:23.471032024 +0200
+@@ -5,12 +5,12 @@
+ # $Id$
+ 
+ if [ x"$LIBDIRPATH" = x ]; then
+-  LIBDIRPATH="$HOME/lib:/usr/local/lib:/usr/lib"
++  LIBDIRPATH="$HOME/lib:/usr/local/lib:/usr/lib:/usr/lib/ROX-apps"
+   export LIBDIRPATH
+ fi
+ 
+ if [ x"$APPDIRPATH" = x ]; then
+-  APPDIRPATH="$HOME/Apps:/usr/local/apps:/usr/apps"
++  APPDIRPATH="$HOME/Apps:/usr/local/apps:/usr/apps:/usr/lib/ROX-apps"
+   export APPDIRPATH
+ fi
+ 
