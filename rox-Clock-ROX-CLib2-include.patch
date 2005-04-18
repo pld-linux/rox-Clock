@@ -1,0 +1,43 @@
+diff -urN Clock/src/alarm.c Clock.new/src/alarm.c
+--- Clock/src/alarm.c	2004-10-29 15:36:48.000000000 +0200
++++ Clock.new/src/alarm.c	2005-04-18 15:18:53.700835216 +0200
+@@ -29,7 +29,7 @@
+ #define altzone (timezone+3600)
+ #endif
+ 
+-#include <rox/rox.h>
++#include <ROX-CLib2/rox.h>
+ #include "alarm.h"
+ 
+ /* Note these are used as array indicies, so leave them starting at zero
+diff -urN Clock/src/clock.c Clock.new/src/clock.c
+--- Clock/src/clock.c	2004-11-21 14:03:57.000000000 +0100
++++ Clock.new/src/clock.c	2005-04-18 15:22:56.147977648 +0200
+@@ -43,12 +43,12 @@
+ #include <libxml/tree.h>
+ #include <libxml/parser.h>
+ 
+-#include <rox/rox.h>
+-#include <rox/rox_debug.h>
+-#include <rox/applet.h>
+-#include <rox/rox_soap.h>
+-#include <rox/rox_soap_server.h>
+-#include <rox/options.h>
++#include <ROX-CLib2/rox.h>
++#include <ROX-CLib2/rox_debug.h>
++#include <ROX-CLib2/applet.h>
++#include <ROX-CLib2/rox_soap.h>
++#include <ROX-CLib2/rox_soap_server.h>
++#include <ROX-CLib2/options.h>
+ 
+ #include "alarm.h"
+ 
+@@ -212,7 +212,7 @@
+   printf("Distributed under the terms of the GNU General Public License.\n");
+   printf("(See the file COPYING in the Help directory).\n");
+   printf("%s last compiled %s\n", __FILE__, __DATE__);
+-  printf("ROX-CLib version %s\n", rox_clib_version_string());
++  printf("ROX-CLib2 version %s\n", rox_clib_version_string());
+ 
+   printf("\nCompile time options:\n");
+   printf("  Debug output... %s\n", DEBUG? "yes": "no");
