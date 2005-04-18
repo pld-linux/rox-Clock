@@ -3,19 +3,21 @@
 Summary:	ROX-Clock tells the time
 Summary(pl):	ROX-Clock pokazuje czas
 Name:		rox-%{_name}
-Version:	1.3.2
-Release:	2
-License:	GPL
+Version:	2.1.4
+Release:	1
+License:	GPL v2
 Group:		X11/Applications
-Source0:	http://www.kerofin.demon.co.uk/rox/%{_name}-%{version}.tgz
-# Source0-md5:	1231993334501c4f27a561c4e16ed533
-Patch0:		%{name}-libxml-includes.patch
-Patch1:		%{name}-paths-fix.patch
-URL:		http://www.kerofin.demon.co.uk/rox/utils.html#clock
-BuildRequires:	gdk-pixbuf-devel
+Source0:	http://www.kerofin.demon.co.uk/rox/%{_name}-%{version}.tar.gz
+# Source0-md5:	1f19286b86c18a00694ed2caf81a460c
+Source1:	%{name}.desktop
+Patch0:		%{name}-ROX-CLib2-include.patch
+Patch1:		%{name}-aclocal.patch
+Patch2:		%{name}-ROX-apps-paths.patch
+URL:		http://www.kerofin.demon.co.uk/rox/clock.html
+BuildRequires:	autoconf
+BuildRequires:	gtk+2-devel
 BuildRequires:	libxml2-devel
-BuildRequires:	rox-CLib-devel >= 0.2.2
-BuildRequires:	gtk+-devel
+BuildRequires:	rox-CLib2-devel >= 2.1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_appsdir	%{_libdir}/ROX-apps
@@ -32,18 +34,25 @@ pulpicie. Umo¿liwia tak¿e ustawianie alarmów.
 %setup -q -n %{_name}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
+cd src
+%{__autoconf}
+cd ..
 ./AppRun --compile
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_appsdir}/%{_name}/{Help,%{_platform}}
+install -d $RPM_BUILD_ROOT%{_appsdir}/%{_name}/{Help,Resources,%{_platform}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
-rm -f ../install
-install AppI* AppR* rox_run $RPM_BUILD_ROOT%{_appsdir}/%{_name}
+install AppR* *.xml rox_run $RPM_BUILD_ROOT%{_appsdir}/%{_name}
 install Help/README $RPM_BUILD_ROOT%{_appsdir}/%{_name}/Help
 install %{_platform}/Clock $RPM_BUILD_ROOT%{_appsdir}/%{_name}/%{_platform}
+install Resources/alarm.png $RPM_BUILD_ROOT%{_appsdir}/%{_name}/Resources
+install .DirIcon $RPM_BUILD_ROOT%{_pixmapsdir}/rox-Clock.png
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 ln -sf AppRun $RPM_BUILD_ROOT%{_appsdir}/%{_name}/AppletRun
 
@@ -52,11 +61,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Help/Versions
+%doc Help/{Changes,README,Versions}
+%attr(755,root,root) %dir %{_appsdir}
 %attr(755,root,root) %{_appsdir}/%{_name}/AppRun
 %attr(755,root,root) %{_appsdir}/%{_name}/rox_run
 %attr(755,root,root) %{_appsdir}/%{_name}/%{_platform}
-%{_appsdir}/%{_name}/AppI*
+%dir %{_appsdir}/%{_name}
+%{_appsdir}/%{_name}/*xml
 %{_appsdir}/%{_name}/AppletRun
 %{_appsdir}/%{_name}/Help
-%dir %{_appsdir}/%{_name}
+%{_appsdir}/%{_name}/Resources
+%{_desktopdir}/*
+%{_pixmapsdir}/*
