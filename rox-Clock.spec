@@ -4,7 +4,7 @@ Summary:	ROX-Clock tells the time
 Summary(pl):	ROX-Clock pokazuje czas
 Name:		rox-%{_name}
 Version:	2.1.4
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.kerofin.demon.co.uk/rox/%{_name}-%{version}.tar.gz
@@ -17,11 +17,11 @@ URL:		http://www.kerofin.demon.co.uk/rox/clock.html
 BuildRequires:	autoconf
 BuildRequires:	gtk+2-devel
 BuildRequires:	libxml2-devel
-BuildRequires:	rox-CLib2-devel >= 2.1.4
-Requires:	rox >= 2.2.0-2
+BuildRequires:	rox-CLib2-devel >= 2.1.5-2
+Requires:	rox >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_appsdir	%{_libdir}/ROX-apps
+%define		_roxdir	%{_libdir}/rox
 
 %description
 ROX-Clock is a panel or pinboard clock, with support for settings
@@ -45,17 +45,17 @@ cd ..
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_appsdir}/%{_name}/{Help,Resources,%{_platform}}
+install -d $RPM_BUILD_ROOT%{_roxdir}/%{_name}/{Help,Resources,%{_platform}}
 install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
-install AppR* *.xml rox_run $RPM_BUILD_ROOT%{_appsdir}/%{_name}
-install Help/README $RPM_BUILD_ROOT%{_appsdir}/%{_name}/Help
-install %{_platform}/Clock $RPM_BUILD_ROOT%{_appsdir}/%{_name}/%{_platform}
-install Resources/alarm.png $RPM_BUILD_ROOT%{_appsdir}/%{_name}/Resources
+install AppR* *.xml rox_run $RPM_BUILD_ROOT%{_roxdir}/%{_name}
+install Help/README $RPM_BUILD_ROOT%{_roxdir}/%{_name}/Help
+install %{_platform}/Clock $RPM_BUILD_ROOT%{_roxdir}/%{_name}/%{_platform}
+install Resources/alarm.png $RPM_BUILD_ROOT%{_roxdir}/%{_name}/Resources
 install .DirIcon $RPM_BUILD_ROOT%{_pixmapsdir}/rox-Clock.png
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
-ln -sf AppRun $RPM_BUILD_ROOT%{_appsdir}/%{_name}/AppletRun
+ln -sf AppRun $RPM_BUILD_ROOT%{_roxdir}/%{_name}/AppletRun
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,13 +63,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Help/{Changes,README,Versions}
-%attr(755,root,root) %{_appsdir}/%{_name}/AppRun
-%attr(755,root,root) %{_appsdir}/%{_name}/rox_run
-%attr(755,root,root) %{_appsdir}/%{_name}/%{_platform}
-%dir %{_appsdir}/%{_name}
-%{_appsdir}/%{_name}/*xml
-%{_appsdir}/%{_name}/AppletRun
-%{_appsdir}/%{_name}/Help
-%{_appsdir}/%{_name}/Resources
+%attr(755,root,root) %{_roxdir}/%{_name}/AppRun
+%attr(755,root,root) %{_roxdir}/%{_name}/rox_run
+%attr(755,root,root) %{_roxdir}/%{_name}/%{_platform}
+%dir %{_roxdir}/%{_name}
+%{_roxdir}/%{_name}/*xml
+%{_roxdir}/%{_name}/AppletRun
+%{_roxdir}/%{_name}/Help
+%{_roxdir}/%{_name}/Resources
 %{_desktopdir}/*
 %{_pixmapsdir}/*
