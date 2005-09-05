@@ -2,7 +2,7 @@
 Name=ROX-Clock
 Comment=Simple clock
 Comment[pl]=Prosty zegar
-Exec=/usr/lib/ROX-apps/Clock/AppRun
+Exec=/usr/lib/rox/Clock/AppRun
 Icon=rox-Clock.png
 Terminal=false
 Type=Application
