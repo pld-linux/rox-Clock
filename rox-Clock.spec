@@ -53,7 +53,8 @@ install Help/README $RPM_BUILD_ROOT%{_roxdir}/%{_name}/Help
 install %{_platform}/Clock $RPM_BUILD_ROOT%{_roxdir}/%{_name}/%{_platform}
 install Resources/alarm.png $RPM_BUILD_ROOT%{_roxdir}/%{_name}/Resources
 install .DirIcon $RPM_BUILD_ROOT%{_pixmapsdir}/rox-Clock.png
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+
+sed -e "s,/lib/,/%{_lib}/," %{SOURCE1} > $RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
 ln -sf AppRun $RPM_BUILD_ROOT%{_roxdir}/%{_name}/AppletRun
 
