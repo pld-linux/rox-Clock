@@ -48,7 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_roxdir}/%{_name}/{Help,Resources,%{_platform}}
 install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
-install AppR* *.xml rox_run $RPM_BUILD_ROOT%{_roxdir}/%{_name}
+install .DirIcon AppR* *.xml rox_run $RPM_BUILD_ROOT%{_roxdir}/%{_name}
 install Help/README $RPM_BUILD_ROOT%{_roxdir}/%{_name}/Help
 install %{_platform}/Clock $RPM_BUILD_ROOT%{_roxdir}/%{_name}/%{_platform}
 install Resources/alarm.png $RPM_BUILD_ROOT%{_roxdir}/%{_name}/Resources
@@ -68,6 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_roxdir}/%{_name}/rox_run
 %attr(755,root,root) %{_roxdir}/%{_name}/%{_platform}
 %dir %{_roxdir}/%{_name}
+%{_roxdir}/%{_name}/.DirIcon
 %{_roxdir}/%{_name}/*xml
 %{_roxdir}/%{_name}/AppletRun
 %{_roxdir}/%{_name}/Help
