@@ -73,5 +73,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_roxdir}/%{_name}/AppletRun
 %{_roxdir}/%{_name}/Help
 %{_roxdir}/%{_name}/Resources
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
