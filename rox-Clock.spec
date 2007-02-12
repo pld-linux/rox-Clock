@@ -1,7 +1,7 @@
 %define _name Clock
 %define _platform %(echo `uname -s`-`uname -m|sed 's/i.86/ix86/'`)
 Summary:	ROX-Clock tells the time
-Summary(pl.UTF-8):   ROX-Clock pokazuje czas
+Summary(pl.UTF-8):	ROX-Clock pokazuje czas
 Name:		rox-%{_name}
 Version:	2.1.4
 Release:	2
