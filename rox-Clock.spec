@@ -1,7 +1,7 @@
 %define _name Clock
 %define _platform %(echo `uname -s`-`uname -m|sed 's/i.86/ix86/'`)
 Summary:	ROX-Clock tells the time
-Summary(pl):	ROX-Clock pokazuje czas
+Summary(pl.UTF-8):   ROX-Clock pokazuje czas
 Name:		rox-%{_name}
 Version:	2.1.4
 Release:	2
@@ -27,9 +27,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 ROX-Clock is a panel or pinboard clock, with support for settings
 alarms.
 
-%description -l pl
-ROX-Clock jest zegarem, ktÛry moøe byÊ umieszczony na panelu lub
-pulpicie. Umoøliwia takøe ustawianie alarmÛw.
+%description -l pl.UTF-8
+ROX-Clock jest zegarem, kt√≥ry mo≈ºe byƒá umieszczony na panelu lub
+pulpicie. Umo≈ºliwia tak≈ºe ustawianie alarm√≥w.
 
 %prep
 %setup -q -n %{_name}
